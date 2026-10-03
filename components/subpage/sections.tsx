@@ -46,38 +46,6 @@ export function StepsSection({ section }: { section: SectionOf<"steps"> }) {
   );
 }
 
-// 요금: 한 줄에 한 유형씩, 오른쪽에 가격과 구성을 모아 비교하기 쉽게
-export function PricingSection({ section }: { section: SectionOf<"pricing"> }) {
-  return (
-    <>
-      <ul className="border-t border-ink">
-        {section.items.map((item, index) => (
-          <li key={item.name} className="grid gap-4 border-b border-line py-7 md:grid-cols-[1fr_200px] md:gap-10">
-            <div>
-              <div className="flex items-baseline gap-3">
-                <span className="text-xs font-semibold tabular-nums text-ink-soft">{pad(index + 1)}</span>
-                <h3 className="text-xl font-bold text-ink">{item.name}</h3>
-              </div>
-              <p className="mt-1 text-[15px] font-medium text-ink">{item.summary}</p>
-              <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">{item.description}</p>
-              {item.caution && <p className="mt-2 text-[13px] text-ink-soft/80">※ {item.caution}</p>}
-              <p className="mt-3 text-[13px] text-ink-soft">
-                포함 작업 <span className="ml-1 text-ink">{item.tasks.join(" · ")}</span>
-              </p>
-            </div>
-            <div className="md:text-right">
-              <p className="text-2xl font-bold tracking-tight text-ink">{item.price}</p>
-              <p className="mt-1 text-sm text-ink-soft">{item.vehicle}</p>
-              <p className="text-sm text-ink-soft">{item.crew}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-4 text-[13px] text-ink-soft">작업 난이도 및 이동거리에 따라 견적이 추가될 수 있습니다.</p>
-    </>
-  );
-}
-
 // 서비스 특징: 체크 표시와 글만 있는 2열 목록
 export function MeritsSection({ section }: { section: SectionOf<"merits"> }) {
   return (

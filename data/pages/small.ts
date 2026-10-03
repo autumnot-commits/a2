@@ -1,4 +1,3 @@
-import { smallPricing } from "@/data/pricing/small";
 import { customerCareSection } from "./shared";
 import type { SubPageData } from "./types";
 
@@ -22,10 +21,9 @@ export const smallPage: SubPageData = {
         { title: "하차·배치", description: "원하시는 위치에 가구를 놓고 바닥 정리까지 마칩니다." },
       ],
     },
-    { type: "pricing", no: "03", title: "이용 요금", items: smallPricing },
     {
       type: "merits",
-      no: "04",
+      no: "03",
       title: "서비스 특징",
       items: [
         { title: "필요한 만큼만", description: "짐의 양에 맞춰 차량과 인원을 고르니 불필요한 비용이 없습니다." },

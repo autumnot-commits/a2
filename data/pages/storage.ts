@@ -1,4 +1,3 @@
-import { storagePricing } from "@/data/pricing/storage";
 import { customerCareSection } from "./shared";
 import type { SubPageData } from "./types";
 
@@ -22,10 +21,9 @@ export const storagePage: SubPageData = {
         { title: "출고·배송", description: "입주일에 맞춰 새집으로 옮기고 배치까지 마칩니다." },
       ],
     },
-    { type: "pricing", no: "03", title: "이용 요금", items: storagePricing },
     {
       type: "merits",
-      no: "04",
+      no: "03",
       title: "서비스 특징",
       items: [
         { title: "보관과 이사를 한 번에", description: "보관 업체와 이사 업체를 따로 알아보실 필요가 없습니다." },

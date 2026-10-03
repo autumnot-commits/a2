@@ -125,7 +125,7 @@ export function MobileDrawer() {
                   무료 상담
                 </ConsultButton>
                 <QuoteButton onClick={() => setOpen(false)} className={buttonClass({ variant: "primary", size: "lg" })}>
-                  무료견적 신청
+                  무료 견적 신청
                 </QuoteButton>
               </div>
             </motion.div>

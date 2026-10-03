@@ -1,4 +1,3 @@
-import { officePricing } from "@/data/pricing/office";
 import { customerCareSection } from "./shared";
 import type { SubPageData } from "./types";
 
@@ -22,10 +21,9 @@ export const officePage: SubPageData = {
         { title: "자리 배치", description: "도면에 맞춰 책상과 장비를 배치하고 확인을 받습니다." },
       ],
     },
-    { type: "pricing", no: "03", title: "이용 요금", items: officePricing },
     {
       type: "merits",
-      no: "04",
+      no: "03",
       title: "서비스 특징",
       items: [
         { title: "업무 공백 최소화", description: "주말과 야간 일정으로 평일 업무에 지장이 없게 이전합니다." },

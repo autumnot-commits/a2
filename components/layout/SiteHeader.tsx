@@ -9,7 +9,7 @@ import { MobileDrawer } from "./MobileDrawer";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white">
-      <div className="container-site flex h-16 items-center gap-8 lg:h-[72px]">
+      <div className="container-site flex h-16 items-center gap-6 lg:h-[72px] xl:gap-8">
         <Logo />
         <MegaNav />
         <div className="ml-auto hidden shrink-0 items-center gap-5 lg:flex">

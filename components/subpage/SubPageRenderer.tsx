@@ -3,14 +3,13 @@ import { QuoteButton } from "@/components/quote/wizard/QuoteWizard";
 import { buttonClass } from "@/components/ui/Button";
 import { site } from "@/config/site";
 import type { PageSection, SubPageData } from "@/data/pages/types";
-import { CardsSection, MeritsSection, PricingSection, StepsSection } from "./sections";
+import { CardsSection, MeritsSection, StepsSection } from "./sections";
 import { SubPageHeader } from "./SubPageHeader";
 
 // 섹션 종류별 한 줄 설명
 const descriptions: Record<PageSection["type"], string> = {
   cards2: "견적부터 이사 후까지 한 명의 담당자가 챙깁니다.",
   steps: "방문 견적 후 정해진 순서대로 진행합니다.",
-  pricing: "기본 구성 기준 가격이며, 방문 견적 후 확정됩니다.",
   merits: "같은 이사라도 차이는 작은 데서 납니다.",
 };
 
@@ -20,8 +19,6 @@ function SectionBody({ section }: { section: PageSection }) {
       return <CardsSection section={section} />;
     case "steps":
       return <StepsSection section={section} />;
-    case "pricing":
-      return <PricingSection section={section} />;
     case "merits":
       return <MeritsSection section={section} />;
   }
@@ -55,7 +52,7 @@ export function SubPageRenderer({ data }: { data: SubPageData }) {
         <div className="flex flex-col gap-6 rounded-2xl bg-ink px-8 py-10 text-white md:flex-row md:items-center md:justify-between lg:px-12">
           <div>
             <h2 className="text-2xl font-bold tracking-tight">{data.title}, 무료 견적부터 받아 보세요</h2>
-            <p className="mt-2 text-white/70">담당 팀장이 방문해 확정 견적을 드립니다. 견적은 무료입니다.</p>
+            <p className="mt-2 text-white/70">담당자가 방문해 확정 견적을 드립니다. 견적은 무료입니다.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <a href={site.phoneHref} className="flex h-12 items-center gap-2 rounded-md border border-white/25 px-5 font-semibold tabular-nums hover:border-white/60">

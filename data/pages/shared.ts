@@ -9,7 +9,7 @@ export const customerCareSection: PageSection = {
     {
       icon: "estimate",
       title: "1:1 무료 방문견적 서비스",
-      description: "담당 팀장이 직접 방문해 짐의 양과 동선을 확인하고, 추가 요금 없는 확정 견적을 드립니다.",
+      description: "담당자가 직접 방문해 짐의 양과 동선을 확인하고, 추가 요금 없는 확정 견적을 드립니다.",
     },
     {
       icon: "online",

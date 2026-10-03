@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FaqSection } from "@/components/home/FaqSection";
 import { Hero } from "@/components/home/Hero";
 import { QuickQuote } from "@/components/home/QuickQuote";
 import { LiveQuoteSection } from "@/components/home/LiveQuoteSection";
@@ -20,8 +21,9 @@ export default function HomePage() {
       <QuickQuote />
       <VideoSection />
       <ServiceSection />
-      <LiveQuoteSection />
       <ProcessSection />
+      <LiveQuoteSection />
+      <FaqSection />
       <ReviewSection />
     </>
   );

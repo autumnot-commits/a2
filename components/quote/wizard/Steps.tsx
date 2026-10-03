@@ -11,6 +11,8 @@ import { elevatorOptions, floors, formatPhone, moveTypes, sizes, type FieldError
 import { Chip, FieldGroup, Shake, Tile } from "./parts";
 import { usePostcode } from "./usePostcode";
 
+// 글자 입력칸(이름·주소·요청사항)은 defaultValue로 둔다. 입력 중에 React가 칸의 값을 다시 쓰지 않아야
+// 휴대폰 키보드의 한글 조합("박ㅁ" → "박명")이 끊기지 않는다. 입력값은 onChange로 그대로 상태에 반영된다.
 export type StepProps = {
   data: WizardData;
   update: (patch: Partial<WizardData>) => void;
@@ -23,7 +25,7 @@ export const steps = [
   { label: "날짜", title: "언제 이사하시나요?", description: "희망 날짜를 고르시면 예상 혼잡도를 함께 보여 드려요." },
   { label: "출발지", title: "지금 어디에 사세요?", description: "출발지 주소와 집 정보를 알려 주세요." },
   { label: "도착지", title: "어디로 이사하세요?", description: "시/군/구까지만 고르셔도 견적을 받으실 수 있어요." },
-  { label: "연락처", title: "견적을 받으실 연락처를 알려 주세요", description: "담당 팀장이 이 번호로 연락드려요." },
+  { label: "연락처", title: "견적을 받으실 연락처를 알려 주세요", description: "담당자가 이 번호로 연락드려요." },
 ];
 
 const moveTypeIcon: Record<string, string> = {
@@ -66,21 +68,9 @@ export function MoveTypeStep({ data, update, errors, trigger, onPicked }: StepPr
 
 export function DateStep({ data, update, errors, trigger }: StepProps) {
   return (
-    <div className="flex flex-col gap-7">
-      <FieldGroup label="이사 날짜" error={errors.date} trigger={trigger}>
-        <Calendar value={data.date} onChange={(date) => update({ date })} />
-      </FieldGroup>
-      <FieldGroup label="이사 날짜는 확정하셨나요?" error={errors.dateConfirmed} trigger={trigger}>
-        <ChipRow>
-          <Chip selected={data.dateConfirmed === "confirmed"} onClick={() => update({ dateConfirmed: "confirmed" })}>
-            확정이에요
-          </Chip>
-          <Chip selected={data.dateConfirmed === "flexible"} onClick={() => update({ dateConfirmed: "flexible" })}>
-            바뀔 수 있어요
-          </Chip>
-        </ChipRow>
-      </FieldGroup>
-    </div>
+    <FieldGroup label="이사 날짜" error={errors.date} trigger={trigger}>
+      <Calendar value={data.date} onChange={(date) => update({ date })} />
+    </FieldGroup>
   );
 }
 
@@ -95,7 +85,7 @@ export function FromStep({ data, update, errors, trigger }: StepProps) {
         {failed ? (
           <>
             <Input
-              value={from.address}
+              defaultValue={from.address}
               onChange={(e) => {
                 const [sido = "", sigungu = ""] = e.target.value.trim().split(/\s+/);
                 set({ address: e.target.value, sido, sigungu });
@@ -120,7 +110,7 @@ export function FromStep({ data, update, errors, trigger }: StepProps) {
         )}
         <Input
           className="mt-2"
-          value={from.detail}
+          defaultValue={from.detail}
           onChange={(e) => set({ detail: e.target.value })}
           placeholder="상세 주소 (동·호수, 선택)"
           aria-label="출발지 상세 주소"
@@ -199,7 +189,7 @@ export function ToStep({ data, update, errors, trigger }: StepProps) {
       <div>
         {manual || failed ? (
           <FieldGroup label="정확한 주소" trigger={trigger} optional>
-            <Input value={to.address} onChange={(e) => set({ address: e.target.value })} placeholder="도착지 주소" aria-label="도착지 주소" />
+            <Input defaultValue={to.address} onChange={(e) => set({ address: e.target.value })} placeholder="도착지 주소" aria-label="도착지 주소" />
           </FieldGroup>
         ) : to.address ? (
           <p className="text-[15px] text-ink">
@@ -286,7 +276,7 @@ export function ContactStep({ data, update, errors, trigger }: StepProps) {
   return (
     <div className="flex flex-col gap-6">
       <FieldGroup label="이름" error={errors.name} trigger={trigger}>
-        <Input value={data.name} onChange={(e) => update({ name: e.target.value })} autoComplete="name" aria-label="이름" />
+        <Input defaultValue={data.name} onChange={(e) => update({ name: e.target.value })} autoComplete="name" aria-label="이름" />
       </FieldGroup>
       <FieldGroup label="휴대폰 번호" error={errors.phone} trigger={trigger}>
         <div className="flex gap-2">
@@ -309,7 +299,7 @@ export function ContactStep({ data, update, errors, trigger }: StepProps) {
       </FieldGroup>
       <FieldGroup label="요청사항" trigger={trigger} optional>
         <Textarea
-          value={data.memo}
+          defaultValue={data.memo}
           onChange={(e) => update({ memo: e.target.value })}
           rows={3}
           maxLength={500}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRightIcon, serviceIcons } from "@/components/icons";
 import services from "@/data/services.json";
+import { Gallery } from "./Gallery";
 import { SectionHeading } from "./SectionHeading";
 
 export function ServiceSection() {
@@ -26,6 +27,7 @@ export function ServiceSection() {
             );
           })}
         </ul>
+        <Gallery />
       </div>
     </section>
   );

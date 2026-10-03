@@ -6,7 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 
 export function ProcessSection() {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-muted py-16 lg:py-24">
       <div className="container-site">
         <SectionHeading title="이사 진행 과정" description="신청부터 마무리까지 다섯 단계로 진행합니다." />
         <ol className="mt-12 grid md:grid-cols-5 md:gap-6">

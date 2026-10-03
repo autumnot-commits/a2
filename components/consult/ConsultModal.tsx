@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { createContext, useCallback, useContext, useRef, useState, type ComponentProps, type ReactNode } from "react";
 import { ChatIcon, ChevronLeftIcon, CloseIcon, KakaoBubbleIcon, PhoneIcon } from "@/components/icons";
 import { site } from "@/config/site";
+import { copyText } from "@/lib/copy";
 import { cn } from "@/lib/cn";
 
 type Method = "phone" | "kakao";
@@ -51,17 +52,14 @@ function MethodTile({ onClick, icon, title, description }: { onClick: () => void
 }
 
 function PhonePanel() {
-  const [copied, setCopied] = useState(false);
+  const [copy, setCopy] = useState<"idle" | "copied" | "failed">("idle");
 
-  async function copy() {
-    try {
-      await navigator.clipboard.writeText(site.phone);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // 복사가 막힌 환경에서는 번호를 직접 보고 걸 수 있다.
-    }
+  async function handleCopy(event: React.MouseEvent<HTMLButtonElement>) {
+    const ok = await copyText(site.phone, event.currentTarget);
+    setCopy(ok ? "copied" : "failed");
+    setTimeout(() => setCopy("idle"), 2500);
   }
+  const copied = copy === "copied";
 
   return (
     <div className="text-center">
@@ -81,12 +79,12 @@ function PhonePanel() {
           <PhoneIcon className="size-5" />
           전화 걸기
         </a>
-        <button type="button" onClick={copy} className="h-14 rounded-[14px] border border-line px-5 font-semibold text-ink hover:border-ink/40">
+        <button type="button" onClick={handleCopy} className="h-14 rounded-[14px] border border-line px-5 font-semibold text-ink hover:border-ink/40">
           {copied ? "복사됨" : "번호 복사"}
         </button>
       </div>
       <p className="mt-3 text-[13px] text-ink-soft" aria-live="polite">
-        {copied ? "번호를 복사했어요." : <span className="hidden md:inline">PC에서는 번호를 복사해 휴대폰으로 걸어 주세요.</span>}
+        {copied ? "번호를 복사했어요." : copy === "failed" ? "이 화면에서는 복사가 안 돼요. 번호를 길게 눌러 복사해 주세요." : <span className="hidden md:inline">PC에서는 번호를 복사해 휴대폰으로 걸어 주세요.</span>}
       </p>
     </div>
   );

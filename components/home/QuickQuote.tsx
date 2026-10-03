@@ -1,6 +1,7 @@
 import { ConsultButton } from "@/components/consult/ConsultModal";
 import { ArrowRightIcon, KakaoBubbleIcon, PhoneIcon } from "@/components/icons";
 import { QuoteButton } from "@/components/quote/wizard/QuoteWizard";
+import { CopyButton } from "@/components/ui/CopyButton";
 import { site } from "@/config/site";
 
 // 슬라이더 아래 견적 시작 영역. 가운데 정렬로 큰 버튼 하나에 시선을 모은다.
@@ -30,7 +31,10 @@ export function QuickQuote() {
             카카오톡 상담
           </ConsultButton>
         </div>
-        <p className="mt-3 text-[13px] tabular-nums text-ink-soft sm:hidden">{site.phone}</p>
+        <p className="mt-3 flex items-center gap-2 text-[13px] tabular-nums text-ink-soft sm:hidden">
+          {site.phone}
+          <CopyButton text={site.phone} />
+        </p>
 
         {/* PC: 문장형 안내 */}
         <div className="mt-10 hidden flex-col items-center gap-3 border-t border-line pt-6 text-[15px] text-ink-soft sm:flex lg:mt-12">
@@ -40,6 +44,7 @@ export function QuickQuote() {
             <a href={site.phoneHref} className="font-semibold tabular-nums text-ink underline decoration-line underline-offset-4 hover:decoration-ink">
               {site.phone}
             </a>
+            <CopyButton text={site.phone} />
           </p>
           {/* 누르면 무료 상담 창이 카카오톡 상담 화면으로 바로 열린다 */}
           <ConsultButton method="kakao" className="group flex items-center gap-2">

@@ -51,7 +51,7 @@ export function LiveQuoteList({ quotes }: { quotes: LiveQuote[] }) {
 
   return (
     <div>
-      <div className={`${columns} border-b border-line pb-3 text-xs text-ink-soft`} aria-hidden="true">
+      <div className={`${columns} border-b border-[#c9d4e6] pb-3 text-xs text-ink-soft`} aria-hidden="true">
         <span>구간</span>
         <span className="hidden sm:block">종류</span>
         <span className="hidden sm:block">고객</span>
@@ -75,7 +75,7 @@ export function LiveQuoteList({ quotes }: { quotes: LiveQuote[] }) {
           onTransitionEnd={handleTransitionEnd}
         >
           {items.slice(0, VISIBLE_ROWS + 1).map((quote) => (
-            <li key={quote.id} className={`${columns} border-b border-line/70 text-[15px]`} style={{ height: ROW_HEIGHT }}>
+            <li key={quote.id} className={`${columns} border-b border-[#d6dfee] text-[15px]`} style={{ height: ROW_HEIGHT }}>
               <span className="flex min-w-0 items-center gap-2 text-ink">
                 <Place value={quote.from} />
                 <span className="shrink-0 text-ink-soft/60" aria-hidden="true">

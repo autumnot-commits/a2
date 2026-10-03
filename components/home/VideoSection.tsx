@@ -1,10 +1,8 @@
 "use client";
 
-import { animate, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { PlayIcon } from "@/components/icons";
 import { site } from "@/config/site";
-import { stats, type Stat } from "@/data/stats";
 
 function PlayBadge() {
   return (
@@ -59,29 +57,6 @@ function IntroVideo() {
   );
 }
 
-function CountUp({ stat }: { stat: Stat }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!inView || stat.value === null) return;
-    const controls = animate(0, stat.value, {
-      duration: 1.6,
-      ease: "easeOut",
-      onUpdate: (latest) => setDisplay(Math.round(latest)),
-    });
-    return () => controls.stop();
-  }, [inView, stat.value]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {stat.value === null ? "OO" : display.toLocaleString("ko-KR")}
-      {stat.suffix}
-    </span>
-  );
-}
-
 export function VideoSection() {
   return (
     <section className="bg-white py-16 lg:py-[100px]">
@@ -95,17 +70,6 @@ export function VideoSection() {
         <div className="mx-auto mt-10 aspect-video max-w-[1100px] overflow-hidden rounded-2xl shadow-[0_24px_60px_-24px_rgba(17,24,39,0.35)] lg:mt-14">
           <IntroVideo />
         </div>
-
-        <dl className="mx-auto mt-12 grid max-w-[1100px] grid-cols-2 gap-y-8 border-t border-line pt-10 md:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <dt className="text-sm text-ink-soft">{stat.label}</dt>
-              <dd className="mt-1 text-[28px] font-bold tracking-tight text-ink lg:text-4xl">
-                <CountUp stat={stat} />
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

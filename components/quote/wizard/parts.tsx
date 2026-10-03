@@ -1,20 +1,23 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { AnimatePresence, motion, useAnimationControls } from "framer-motion";
+import { useEffect, type ReactNode } from "react";
 import { CheckIcon } from "@/components/icons";
 import { cn } from "@/lib/cn";
 
 // 오류가 있는 상태에서 "다음"을 누를 때마다 좌우로 흔든다.
+// 안쪽 입력칸을 다시 만들지 않도록(입력 중 커서·한글 조합이 끊기지 않게) 같은 요소에서 애니메이션만 다시 실행한다.
 export function Shake({ active, trigger, children, className }: { active: boolean; trigger: number; children: ReactNode; className?: string }) {
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if (active && trigger > 0) controls.start({ x: [0, -8, 8, -5, 5, 0], transition: { duration: 0.4 } });
+    // 흔들기는 "다음"을 누른 순간(trigger 변화)에만 실행한다.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trigger]);
+
   return (
-    <motion.div
-      key={active ? trigger : "idle"}
-      className={className}
-      data-invalid={active || undefined}
-      animate={active && trigger > 0 ? { x: [0, -8, 8, -5, 5, 0] } : { x: 0 }}
-      transition={{ duration: 0.4 }}
-    >
+    <motion.div className={className} data-invalid={active || undefined} animate={controls}>
       {children}
     </motion.div>
   );

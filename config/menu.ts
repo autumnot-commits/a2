@@ -13,6 +13,12 @@ export type MenuGroup = {
 export const menu: MenuGroup[] = [
   { label: "홈", href: "/", match: "/", exact: true, children: [] },
   {
+    label: "진주점 소개",
+    href: "/about",
+    match: "/about",
+    children: [{ href: "/about", label: "진주점 소개" }],
+  },
+  {
     label: "가정이사",
     href: "/moving/home",
     match: "/moving/home",
@@ -43,10 +49,6 @@ export const menu: MenuGroup[] = [
     children: [
       { href: "/support/quote", label: "견적신청" },
       { href: "/support/faq", label: "자주하는 질문" },
-      { href: "/support/checklist", label: "이사 체크리스트" },
-      { href: "/support/lucky-days", label: "손없는날" },
-      { href: "/support/kakao", label: "카톡상담안내" },
-      { href: "/support/event", label: "이벤트" },
     ],
   },
 ];

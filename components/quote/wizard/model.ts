@@ -15,7 +15,6 @@ export const elevatorOptions = ["있음", "없음"] as const;
 export type WizardData = {
   moveType: string;
   date: string;
-  dateConfirmed: "" | "confirmed" | "flexible";
   from: { address: string; sido: string; sigungu: string; detail: string; floor: string; elevator: string; size: string };
   to: { sido: string; sigungu: string; address: string; elevator: string };
   name: string;
@@ -28,7 +27,6 @@ export type WizardData = {
 export const emptyData: WizardData = {
   moveType: "",
   date: "",
-  dateConfirmed: "",
   from: { address: "", sido: "", sigungu: "", detail: "", floor: "", elevator: "", size: "" },
   to: { sido: "", sigungu: "", address: "", elevator: "" },
   name: "",
@@ -52,7 +50,6 @@ const stepSchemas = [
       .string()
       .min(1, "이사 날짜를 선택해 주세요.")
       .refine((value) => value >= todayString(), "오늘 이후 날짜를 선택해 주세요."),
-    dateConfirmed: z.enum(["confirmed", "flexible"], { error: "날짜를 확정하셨는지 알려 주세요." }),
   }),
   z.object({
     from: z.object({

@@ -53,7 +53,7 @@ export function MegaNav() {
               <Link
                 href={group.href}
                 aria-current={current === group ? "page" : undefined}
-                className="flex h-full items-center px-4 text-[15px] font-medium text-ink xl:px-6"
+                className="flex h-full items-center whitespace-nowrap px-2.5 text-[14px] font-medium text-ink xl:px-5 xl:text-[15px]"
               >
                 <span
                   className={cn(
