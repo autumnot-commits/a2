@@ -51,7 +51,7 @@ export const officePricing: PricingType[] = [
   {
     name: "주말·야간 이전",
     summary: "업무 공백 없이",
-    description: "금요일 퇴근 후나 주말에 이전해 월요일 아침부터 바로 업무를 시작할 수 있습니다.",
+    description: "금요일 퇴근 후나 주말에 이전해 월요일 아침부터 바로 업무를 시작하실 수 있습니다.",
     caution: "주말·야간 작업은 할증이 붙을 수 있습니다.",
     price: "OO만원부터",
     vehicle: "5톤 트럭 1대",

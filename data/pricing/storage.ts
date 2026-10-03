@@ -33,7 +33,7 @@ export const storagePricing: PricingType[] = [
   {
     name: "장기 보관",
     summary: "한 달 이상, 월 단위",
-    description: "해외 근무나 리모델링처럼 오래 짐을 맡겨야 할 때 월 단위로 보관합니다.",
+    description: "해외 근무나 리모델링처럼 오래 짐을 맡기셔야 할 때 월 단위로 보관합니다.",
     price: "OO만원부터",
     vehicle: "2.5톤 트럭 1대",
     crew: "이사맨 3명",

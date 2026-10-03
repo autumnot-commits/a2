@@ -7,7 +7,7 @@ export const smallPage: SubPageData = {
   slug: "small",
   title: "원룸/소형 이사",
   headline: "가볍게, 꼭 필요한 만큼만",
-  intro: ["짐이 적은 1~2인 가구를 위한 소형 차량 이사입니다.", "필요한 만큼만 고르고, 필요한 만큼만 비용을 내세요."],
+  intro: ["짐이 적은 1~2인 가구를 위한 소형 차량 이사입니다.", "필요한 만큼만 고르시고, 필요한 만큼만 비용을 내세요."],
   quoteType: "원룸·소형이사",
   sections: [
     customerCareSection,

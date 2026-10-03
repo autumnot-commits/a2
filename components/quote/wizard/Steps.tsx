@@ -20,9 +20,9 @@ export type StepProps = {
 
 export const steps = [
   { label: "이사 종류", title: "어떤 이사를 하시나요?", description: "가장 가까운 이사 종류를 골라 주세요." },
-  { label: "날짜", title: "언제 이사하시나요?", description: "희망 날짜를 고르면 예상 혼잡도를 함께 보여 드려요." },
+  { label: "날짜", title: "언제 이사하시나요?", description: "희망 날짜를 고르시면 예상 혼잡도를 함께 보여 드려요." },
   { label: "출발지", title: "지금 어디에 사세요?", description: "출발지 주소와 집 정보를 알려 주세요." },
-  { label: "도착지", title: "어디로 이사하세요?", description: "시/군/구까지만 골라도 견적을 낼 수 있어요." },
+  { label: "도착지", title: "어디로 이사하세요?", description: "시/군/구까지만 고르셔도 견적을 받으실 수 있어요." },
   { label: "연락처", title: "견적을 받으실 연락처를 알려 주세요", description: "담당 팀장이 이 번호로 연락드려요." },
 ];
 
@@ -70,7 +70,7 @@ export function DateStep({ data, update, errors, trigger }: StepProps) {
       <FieldGroup label="이사 날짜" error={errors.date} trigger={trigger}>
         <Calendar value={data.date} onChange={(date) => update({ date })} />
       </FieldGroup>
-      <FieldGroup label="날짜가 확정됐나요?" error={errors.dateConfirmed} trigger={trigger}>
+      <FieldGroup label="이사 날짜는 확정하셨나요?" error={errors.dateConfirmed} trigger={trigger}>
         <ChipRow>
           <Chip selected={data.dateConfirmed === "confirmed"} onClick={() => update({ dateConfirmed: "confirmed" })}>
             확정이에요
@@ -103,7 +103,7 @@ export function FromStep({ data, update, errors, trigger }: StepProps) {
               placeholder="예: 서울 강남구 테헤란로 123"
               aria-label="출발지 주소"
             />
-            <p className="mt-2 text-[13px] text-ink-soft">주소 검색을 불러오지 못해 직접 입력으로 바꿨어요.</p>
+            <p className="mt-2 text-[13px] text-ink-soft">주소 검색을 불러오지 못해 직접 입력하실 수 있게 바꿨어요.</p>
           </>
         ) : (
           <button
@@ -219,7 +219,7 @@ export function ToStep({ data, update, errors, trigger }: StepProps) {
             }
             className="text-[15px] font-medium text-primary underline underline-offset-4"
           >
-            정확한 주소를 알면 입력하기
+            정확한 주소를 아시면 입력하기
           </button>
         )}
       </div>
@@ -239,8 +239,8 @@ export function ToStep({ data, update, errors, trigger }: StepProps) {
 
 const terms = {
   privacy:
-    "수집 항목: 이름, 휴대폰 번호, 이사 날짜, 출발지·도착지 정보, 요청사항\n이용 목적: 이사 견적 안내 및 상담\n보유 기간: [보유 기간 확정 필요] 후 파기\n동의를 거부할 수 있으나, 거부하면 견적 신청을 할 수 없습니다.",
-  marketing: "이벤트·할인 소식을 문자로 받아 보실 수 있습니다. 동의하지 않아도 견적 신청에는 영향이 없습니다.",
+    "수집 항목: 이름, 휴대폰 번호, 이사 날짜, 출발지·도착지 정보, 요청사항\n이용 목적: 이사 견적 안내 및 상담\n보유 기간: [보유 기간 확정 필요] 후 파기\n동의를 거부하실 수 있으나, 거부하시면 견적 신청을 하실 수 없습니다.",
+  marketing: "이벤트·할인 소식을 문자로 받아 보실 수 있습니다. 동의하지 않으셔도 견적 신청에는 영향이 없습니다.",
 };
 
 function Agreement({

@@ -29,7 +29,7 @@ export const officePage: SubPageData = {
       title: "서비스 특징",
       items: [
         { title: "업무 공백 최소화", description: "주말과 야간 일정으로 평일 업무에 지장이 없게 이전합니다." },
-        { title: "번호 관리 포장", description: "자리별 번호표로 새 사무실에서도 짐을 바로 찾을 수 있습니다." },
+        { title: "번호 관리 포장", description: "자리별 번호표로 새 사무실에서도 짐을 바로 찾으실 수 있습니다." },
         { title: "전산 장비 별도 포장", description: "컴퓨터와 서버 장비는 충격 방지 포장으로 따로 옮깁니다." },
         { title: "보안 문서 관리", description: "중요 서류는 잠금 박스에 담아 이동 중에도 열리지 않게 합니다." },
         { title: "건물 규정 확인", description: "엘리베이터 예약과 반입 시간 같은 건물 규정을 미리 확인합니다." },

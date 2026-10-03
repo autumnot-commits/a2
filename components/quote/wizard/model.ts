@@ -4,7 +4,7 @@ export const moveTypes = [
   { value: "가정이사", description: "아파트·빌라·주택 살림 전체" },
   { value: "원룸·소형이사", description: "원룸·투룸·오피스텔 1~2인 가구" },
   { value: "용달이사", description: "짐 몇 개만 빠르게 옮길 때" },
-  { value: "보관이사", description: "입주일까지 짐을 맡겨야 할 때" },
+  { value: "보관이사", description: "입주일까지 짐을 맡기셔야 할 때" },
   { value: "사무실이사", description: "사무실·상가·매장 이전" },
 ] as const;
 
@@ -52,7 +52,7 @@ const stepSchemas = [
       .string()
       .min(1, "이사 날짜를 선택해 주세요.")
       .refine((value) => value >= todayString(), "오늘 이후 날짜를 선택해 주세요."),
-    dateConfirmed: z.enum(["confirmed", "flexible"], { error: "날짜가 확정됐는지 알려 주세요." }),
+    dateConfirmed: z.enum(["confirmed", "flexible"], { error: "날짜를 확정하셨는지 알려 주세요." }),
   }),
   z.object({
     from: z.object({

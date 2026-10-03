@@ -359,9 +359,9 @@ export function QuoteWizardProvider({ children }: { children: ReactNode }) {
               <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 p-6" role="alertdialog" aria-labelledby="exit-title">
                 <div className="w-full max-w-sm rounded-2xl bg-white p-6">
                   <h2 id="exit-title" className="text-lg font-bold text-ink">
-                    작성 중인 내용이 있어요. 나갈까요?
+                    작성 중인 내용이 있어요. 나가시겠어요?
                   </h2>
-                  <p className="mt-1.5 text-sm text-ink-soft">입력한 내용은 저장돼서 다음에 이어서 작성할 수 있어요. (이름·연락처 제외)</p>
+                  <p className="mt-1.5 text-sm text-ink-soft">입력하신 내용은 저장되어 다음에 이어서 작성하실 수 있어요. (이름·연락처 제외)</p>
                   <div className="mt-5 grid grid-cols-2 gap-2">
                     <button type="button" onClick={() => setConfirmExit(false)} className="h-12 rounded-xl border border-line font-semibold text-ink" autoFocus>
                       계속 작성
@@ -390,8 +390,8 @@ function ResumeScreen({ onResume, onRestart, onClose }: { onResume: () => void; 
         </button>
       </div>
       <div className="my-auto pb-16">
-        <h2 className="text-2xl font-bold tracking-[-0.02em] text-ink md:text-[28px]">작성하던 견적이 있어요</h2>
-        <p className="mt-2 text-[15px] text-ink-soft">이어서 작성하거나 처음부터 다시 시작할 수 있어요.</p>
+        <h2 className="text-2xl font-bold tracking-[-0.02em] text-ink md:text-[28px]">작성하신 견적이 있어요</h2>
+        <p className="mt-2 text-[15px] text-ink-soft">이어서 작성하시거나 처음부터 다시 시작하실 수 있어요.</p>
         <div className="mt-8 flex flex-col gap-2 sm:flex-row">
           <button type="button" onClick={onResume} className="h-14 rounded-[14px] bg-primary px-8 font-bold text-white hover:bg-primary-deep" autoFocus>
             이어서 작성하기

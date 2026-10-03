@@ -14,7 +14,7 @@ export const customerCareSection: PageSection = {
     {
       icon: "online",
       title: "온라인 견적서",
-      description: "견적 내용과 작업 범위를 문자로 보내 드려, 언제든 휴대폰에서 다시 확인할 수 있습니다.",
+      description: "견적 내용과 작업 범위를 문자로 보내 드려, 언제든 휴대폰에서 다시 확인하실 수 있습니다.",
     },
   ],
 };

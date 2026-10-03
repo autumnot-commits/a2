@@ -1,4 +1,5 @@
-import { ArrowRightIcon, PhoneIcon } from "@/components/icons";
+import { ConsultButton } from "@/components/consult/ConsultModal";
+import { ArrowRightIcon, KakaoBubbleIcon, PhoneIcon } from "@/components/icons";
 import { QuoteButton } from "@/components/quote/wizard/QuoteWizard";
 import { site } from "@/config/site";
 
@@ -18,12 +19,34 @@ export function QuickQuote() {
         </QuoteButton>
         <p className="mt-4 text-sm text-ink-soft">5분이면 끝나요 · 방문 견적 무료</p>
 
-        <div className="mt-10 flex items-center gap-2 border-t border-line pt-6 text-[15px] text-ink-soft lg:mt-12">
-          <PhoneIcon className="size-4 text-primary" />
-          전화로 바로 상담하시려면
-          <a href={site.phoneHref} className="font-semibold tabular-nums text-ink underline decoration-line underline-offset-4 hover:decoration-ink">
-            {site.phone}
+        {/* 모바일: 손가락으로 누르기 쉬운 큰 버튼 2개 */}
+        <div className="mt-8 grid w-full max-w-sm grid-cols-2 gap-2 sm:hidden">
+          <a href={site.phoneHref} className="flex h-14 items-center justify-center gap-2 rounded-2xl border border-line text-[15px] font-semibold text-ink">
+            <PhoneIcon className="size-5 text-primary" />
+            전화 상담
           </a>
+          <ConsultButton method="kakao" className="flex h-14 items-center justify-center gap-2 rounded-2xl bg-[#FEE500] text-[15px] font-semibold text-[#191919]">
+            <KakaoBubbleIcon className="size-5" />
+            카카오톡 상담
+          </ConsultButton>
+        </div>
+        <p className="mt-3 text-[13px] tabular-nums text-ink-soft sm:hidden">{site.phone}</p>
+
+        {/* PC: 문장형 안내 */}
+        <div className="mt-10 hidden flex-col items-center gap-3 border-t border-line pt-6 text-[15px] text-ink-soft sm:flex lg:mt-12">
+          <p className="flex items-center gap-2">
+            <PhoneIcon className="size-4 text-primary" />
+            전화로 바로 상담하시려면
+            <a href={site.phoneHref} className="font-semibold tabular-nums text-ink underline decoration-line underline-offset-4 hover:decoration-ink">
+              {site.phone}
+            </a>
+          </p>
+          {/* 누르면 무료 상담 창이 카카오톡 상담 화면으로 바로 열린다 */}
+          <ConsultButton method="kakao" className="group flex items-center gap-2">
+            <KakaoBubbleIcon className="size-4" />
+            채팅으로 상담하시려면
+            <span className="font-semibold text-ink underline decoration-line underline-offset-4 group-hover:decoration-ink">카카오톡 상담</span>
+          </ConsultButton>
         </div>
       </div>
     </section>

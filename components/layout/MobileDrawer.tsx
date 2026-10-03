@@ -42,7 +42,7 @@ export function MobileDrawer() {
   }, [open]);
 
   return (
-    <div className="ml-auto lg:hidden">
+    <div className="lg:hidden">
       <button
         ref={triggerRef}
         type="button"

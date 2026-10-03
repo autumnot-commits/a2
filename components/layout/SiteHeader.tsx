@@ -19,7 +19,14 @@ export function SiteHeader() {
           </ConsultButton>
           <QuoteButton className={buttonClass({ variant: "primary", size: "sm" })}>무료 견적</QuoteButton>
         </div>
-        <MobileDrawer />
+        {/* 모바일: 상담 아이콘 + 메뉴 */}
+        <div className="ml-auto flex items-center gap-1 lg:hidden">
+          <ConsultButton className="flex size-10 items-center justify-center rounded-md text-ink hover:bg-ink/5">
+            <ChatIcon className="size-[22px]" />
+            <span className="sr-only">무료 상담</span>
+          </ConsultButton>
+          <MobileDrawer />
+        </div>
       </div>
     </header>
   );

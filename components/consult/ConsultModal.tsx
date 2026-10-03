@@ -183,7 +183,7 @@ export function ConsultProvider({ children }: { children: ReactNode }) {
                   <KakaoPanel />
                 ) : (
                   <>
-                    <h2 className="text-2xl font-bold tracking-[-0.02em] text-ink">어떤 방법으로 상담할까요?</h2>
+                    <h2 className="text-2xl font-bold tracking-[-0.02em] text-ink">어떤 방법으로 상담하시겠어요?</h2>
                     <p className="mt-1.5 text-[15px] text-ink-soft">견적과 일정, 궁금한 점 무엇이든 물어보세요.</p>
                     <div className="mt-6 grid grid-cols-2 gap-3">
                       <MethodTile
@@ -194,7 +194,7 @@ export function ConsultProvider({ children }: { children: ReactNode }) {
                           </span>
                         }
                         title="전화 상담"
-                        description="바로 통화해요"
+                        description="바로 통화하세요"
                       />
                       <MethodTile onClick={() => setMethod("kakao")} icon={<KakaoBubbleIcon className="size-12" />} title="카카오톡 상담" description="채팅으로 편하게" />
                     </div>
