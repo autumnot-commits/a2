@@ -1,0 +1,61 @@
+import type { PricingType } from "@/data/pages/types";
+
+// TODO(INFO-02): 요금 유형·차량·인원은 회사 기준으로 확인한다. 가격은 사용자가 직접 입력한다.
+export const officePricing: PricingType[] = [
+  {
+    name: "소형 사무실 이전",
+    summary: "10인 이하 사무실",
+    description: "책상, 의자, 서류함, 컴퓨터를 포장해 새 사무실에 자리 배치까지 해 드립니다.",
+    price: "OO만원부터",
+    vehicle: "2.5톤 트럭 1대",
+    crew: "이사맨 3명",
+    tasks: ["포장", "상하차", "운반", "배치"],
+  },
+  {
+    name: "중형 사무실 이전",
+    summary: "30인 이하 사무실",
+    description: "부서별로 짐에 번호를 붙여 포장하고, 도면에 맞춰 자리를 배치합니다.",
+    price: "OO만원부터",
+    vehicle: "5톤 트럭 2대",
+    crew: "이사맨 6명",
+    tasks: ["포장", "상하차", "운반", "배치"],
+  },
+  {
+    name: "대형 사무실 이전",
+    summary: "30인 이상·여러 층 이전",
+    description: "사전 답사로 일정을 나누고, 층별 담당자를 정해 단계적으로 이전합니다.",
+    caution: "규모에 따라 이틀 이상 나누어 진행할 수 있습니다.",
+    price: "OO만원부터",
+    vehicle: "5톤 트럭 3대",
+    crew: "이사맨 10명",
+    tasks: ["답사", "포장", "운반", "배치"],
+  },
+  {
+    name: "상가·매장 이전",
+    summary: "카페·매장·학원",
+    description: "진열대와 집기를 안전하게 옮기고 영업 재개 일정에 맞춰 배치합니다.",
+    price: "OO만원부터",
+    vehicle: "2.5톤 트럭 1대",
+    crew: "이사맨 3명",
+    tasks: ["포장", "상하차", "운반", "배치"],
+  },
+  {
+    name: "집기 부분 이전",
+    summary: "일부 집기만 옮길 때",
+    description: "층간 이동이나 일부 부서 이전처럼 필요한 집기만 골라 옮깁니다.",
+    price: "OO만원부터",
+    vehicle: "1톤 트럭 1대",
+    crew: "이사맨 2명",
+    tasks: ["상하차", "운반"],
+  },
+  {
+    name: "주말·야간 이전",
+    summary: "업무 공백 없이",
+    description: "금요일 퇴근 후나 주말에 이전해 월요일 아침부터 바로 업무를 시작할 수 있습니다.",
+    caution: "주말·야간 작업은 할증이 붙을 수 있습니다.",
+    price: "OO만원부터",
+    vehicle: "5톤 트럭 1대",
+    crew: "이사맨 6명",
+    tasks: ["포장", "상하차", "운반", "배치"],
+  },
+];
