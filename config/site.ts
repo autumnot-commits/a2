@@ -1,12 +1,15 @@
 // 사이트 전역 설정. 브랜드명, 전화번호, 운영시간, 메뉴는 이 파일 한 곳에서만 바꾼다.
-// TODO(ENV-12): {{BRAND}}, {{PHONE}}과 대괄호 값은 실제 회사 정보로 교체해야 한다.
+// TODO(ENV-12): 대괄호 값은 실제 회사 정보로 교체해야 한다.
 export const site = {
   name: "KGB 이사서비스 진주점",
   description: "가정이사, 원룸·소형이사, 사무실이사, 보관이사. 평일·주말 상관없이 365일 무료 방문견적.",
   url: "http://localhost:3000",
-  phone: "{{PHONE}}",
-  // tel: 링크용 숫자. 실제 번호로 바꿀 때 함께 바꾼다.
-  phoneHref: "tel:{{PHONE}}",
+  phone: "055-757-8224",
+  // tel: 링크용 숫자. 번호를 바꿀 때 함께 바꾼다.
+  phoneHref: "tel:0557578224",
+  // 카카오톡 채널 채팅 주소. 비어 있으면 상담 창의 카카오톡 버튼이 "준비 중"으로 표시된다.
+  // 예: "https://pf.kakao.com/_xxxxx/chat"
+  kakaoUrl: "",
   hours: {
     weekday: "09:00 ~ 19:00",
     weekend: "09:00 ~ 18:00",

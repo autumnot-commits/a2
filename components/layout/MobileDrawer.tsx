@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRightIcon, CloseIcon, MenuIcon } from "@/components/icons";
+import { ConsultButton } from "@/components/consult/ConsultModal";
 import { QuoteButton } from "@/components/quote/wizard/QuoteWizard";
 import { buttonClass } from "@/components/ui/Button";
 import { menu } from "@/config/menu";
@@ -120,9 +121,9 @@ export function MobileDrawer() {
                 </ul>
               </nav>
               <div className="grid gap-2 border-t border-line p-5">
-                <a href={site.phoneHref} className={buttonClass({ variant: "outline", size: "lg" })}>
-                  전화 상담 {site.phone}
-                </a>
+                <ConsultButton onClick={() => setOpen(false)} className={buttonClass({ variant: "outline", size: "lg" })}>
+                  무료 상담
+                </ConsultButton>
                 <QuoteButton onClick={() => setOpen(false)} className={buttonClass({ variant: "primary", size: "lg" })}>
                   무료견적 신청
                 </QuoteButton>

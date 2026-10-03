@@ -10,28 +10,38 @@ import { cn } from "@/lib/cn";
 
 const INTERVAL_MS = 5000;
 
+// 이미지는 자르거나 늘리지 않고 원래 크기 그대로 가운데에 둔다. (화면이 더 좁으면 비율을 지키며 줄어든다)
+// 양옆 빈 곳은 같은 이미지를 흐리게 깔아 자연스럽게 채운다.
 function SlideImage({ slide, priority }: { slide: HeroSlide; priority: boolean }) {
-  const body = slide.image ? (
+  if (!slide.image || !slide.width || !slide.height) {
+    // 이미지가 아직 없을 때: 단색 자리표시
+    return <div role="img" aria-label={slide.alt} className="h-[360px] lg:h-[380px]" style={{ backgroundColor: slide.bgColor }} />;
+  }
+
+  const image = (
     <Image
       src={slide.image}
       alt={slide.alt}
-      fill
-      sizes="100vw"
-      className="object-cover"
-      style={{ objectPosition: slide.position ?? "center" }}
+      width={slide.width}
+      height={slide.height}
+      sizes={`(max-width: ${slide.width}px) 100vw, ${slide.width}px`}
+      className="relative mx-auto block h-auto w-full"
+      style={{ maxWidth: slide.width }}
       priority={priority}
     />
-  ) : (
-    // 이미지가 아직 없을 때: 단색 자리표시
-    <div role="img" aria-label={slide.alt} className="size-full" style={{ backgroundColor: slide.bgColor }} />
   );
 
-  return slide.href ? (
-    <Link href={slide.href} className="block size-full">
-      {body}
-    </Link>
-  ) : (
-    body
+  return (
+    <div className="relative overflow-hidden">
+      <Image src={slide.image} alt="" fill sizes="100vw" aria-hidden="true" className="scale-110 object-cover opacity-70 blur-2xl" />
+      {slide.href ? (
+        <Link href={slide.href} className="relative block">
+          {image}
+        </Link>
+      ) : (
+        image
+      )}
+    </div>
   );
 }
 
@@ -57,7 +67,7 @@ export function Hero() {
     <section
       aria-roledescription="carousel"
       aria-label="주요 안내"
-      className="group relative h-[360px] overflow-hidden bg-muted lg:h-[380px]"
+      className="group relative grid overflow-hidden bg-muted"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}
@@ -72,7 +82,7 @@ export function Hero() {
           role="group"
           aria-roledescription="slide"
           aria-label={`${count}개 중 ${index + 1}번째`}
-          className="absolute inset-0"
+          className="col-start-1 row-start-1"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

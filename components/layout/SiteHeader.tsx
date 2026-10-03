@@ -1,7 +1,7 @@
-import { PhoneIcon } from "@/components/icons";
+import { ConsultButton } from "@/components/consult/ConsultModal";
+import { ChatIcon } from "@/components/icons";
 import { QuoteButton } from "@/components/quote/wizard/QuoteWizard";
 import { buttonClass } from "@/components/ui/Button";
-import { site } from "@/config/site";
 import { Logo } from "./Logo";
 import { MegaNav } from "./MegaNav";
 import { MobileDrawer } from "./MobileDrawer";
@@ -13,10 +13,10 @@ export function SiteHeader() {
         <Logo />
         <MegaNav />
         <div className="ml-auto hidden shrink-0 items-center gap-5 lg:flex">
-          <a href={site.phoneHref} className="flex items-center gap-2 font-semibold tabular-nums text-ink">
-            <PhoneIcon className="size-[18px] text-primary" />
-            {site.phone}
-          </a>
+          <ConsultButton className="flex items-center gap-2 text-[15px] font-semibold text-ink hover:text-primary">
+            <ChatIcon className="size-[18px] text-primary" />
+            무료 상담
+          </ConsultButton>
           <QuoteButton className={buttonClass({ variant: "primary", size: "sm" })}>무료 견적</QuoteButton>
         </div>
         <MobileDrawer />

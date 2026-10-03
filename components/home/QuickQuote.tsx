@@ -16,10 +16,10 @@ export function QuickQuote() {
             무료 견적 신청하기
             <ArrowRightIcon className="size-5 transition-transform group-hover:translate-x-1" />
           </QuoteButton>
-          <p className="text-[15px] text-ink-soft">1분이면 끝나요 · 방문 견적 무료</p>
+          <p className="text-[15px] text-ink-soft">5분이면 끝나요 · 방문 견적 무료</p>
         </div>
         <p className="mt-6 text-[15px] text-ink-soft">
-          전화로 바로 상담하려면{" "}
+          전화로 바로 상담하시려면{" "}
           <a href={site.phoneHref} className="font-semibold tabular-nums text-ink underline decoration-line underline-offset-4 hover:decoration-ink">
             {site.phone}
           </a>

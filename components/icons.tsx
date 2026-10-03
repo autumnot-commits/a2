@@ -42,6 +42,27 @@ export function StarIcon(props: IconProps) {
   );
 }
 
+export function ChatIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...line} {...props}>
+      <path d="M12 4c4.97 0 9 3.13 9 7s-4.03 7-9 7c-.9 0-1.77-.1-2.6-.3L5 20l1.1-3.6C4.18 15.13 3 13.18 3 11c0-3.87 4.03-7 9-7z" />
+    </svg>
+  );
+}
+
+// 카카오톡 상담용 노란 말풍선 (카카오 공식 로고가 아닌 일반 아이콘)
+export function KakaoBubbleIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true" {...props}>
+      <rect width="64" height="64" rx="18" fill="#FEE500" />
+      <path
+        d="M32 16c-9.94 0-18 6.27-18 14 0 4.98 3.35 9.35 8.4 11.83l-1.7 6.27c-.15.55.47.99.95.67l7.4-4.9c.97.09 1.95.13 2.95.13 9.94 0 18-6.27 18-14s-8.06-14-18-14z"
+        fill="#191919"
+      />
+    </svg>
+  );
+}
+
 export function CheckIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" {...line} strokeWidth={2} {...props}>
